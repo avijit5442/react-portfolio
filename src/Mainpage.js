@@ -3,8 +3,7 @@ import Navbar from './Navbar'
 
 export default function Mainpage() {
   var i=0;
-  var text="HTML,CSS,Bootstrap,Javascript,ReactJS.";
-
+  var text="Frontend & Backend = Logics...";
   function skills(){
     if(i<text.length){
       document.getElementById("skill").innerHTML+=text.charAt(i);
@@ -14,7 +13,7 @@ export default function Mainpage() {
       document.getElementById("skill").innerText="";
       i=0;
     }
-    setTimeout(skills,800)
+    setTimeout(skills,200)
   }
   return (
 <div onLoad={skills}>
@@ -42,7 +41,7 @@ export default function Mainpage() {
      <br/>
      <br/>
      <h2 className='m-4 ' style={{position:"absolute"}}>
-        Skills-:<span className='h5'>HTML,CSS,Bootstrap,Javascript,ReactJS,MongoDB,NodeJS,ExpressJS.</span>
+        Skills-:<span className='h5'>HTML,CSS,Bootstrap,Javascript,ReactJS,MongoDB,NodeJS,ExpressJS,React Native.</span>
      </h2>
   <div style={{borderLeft: "2px solid gray",
     height:"250px",
