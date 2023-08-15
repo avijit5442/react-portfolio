@@ -1,0 +1,411 @@
+//To know frequency of each number in a string
+let str = "inthenameoftheorganisation";
+let digitCount = {};
+let highestCount = 0;
+let mostRepetitiveDigit
+for(let i=0;i<str.length;i++)
+{
+  if(digitCount[str[i]]==undefined)
+  {
+    digitCount[str[i]]=1;
+  }
+  else
+  {
+    digitCount[str[i]]+=1;
+  }
+}
+console.log(digitCount) //To know frequency of each number in a string. ////{i: 3, n: 4, t: 3,h: 2, e: 3, a: 3,m: 1, o: 3, f: 1,r: 1, g: 1, s: 1}
+for (let digit in digitCount) {
+
+  if (digitCount[digit] > highestCount) {
+    highestCount = digitCount[digit];
+    mostRepetitiveDigit = digit;
+  }
+}
+console.log("The most repetitive number is:", mostRepetitiveDigit," . ");
+console.log("It appears", highestCount, "times.");
+    ////The most repetitive number is: n . It appears 4 times.
+
+
+//To loop over or get keys/values from an object in an array
+let obj1={a:"25a",x:false,b:34,c:"45b",z:false}
+  console.log(Object.keys(obj1)) //To get values use Values instead of keys or to get all use entries instead.
+   ////[ 'a', 'x', 'b', 'c', 'z' ]
+
+//To get all values from an object
+let obj1={a:"25a",x:false,b:34,c:"45b",z:false}
+  console.log(Object.entries(obj1))
+   ////[[ 'a', '25a' ],[ 'x', false ],[ 'b', 34 ],[ 'c', '45b' ],[ 'z', false ]]
+
+//To get other items by removing a specific item from an object.
+let obj1={a:"25a",x:false,b:34,c:"45b",z:false}
+   for(i in obj1){
+     if(obj1[i]!=false){
+      console.log(i)
+     }
+   }
+   ////[ 'a', 'x', 'b', 'c', 'z' ]
+
+//Remove duplicate item from an array
+let arr = [
+  {id: 1, name: "Hari"},
+  {id: 2, name: "ravi"},
+  {id: 1, name: "Hari"}
+  ]
+
+  arr2 = []
+  arr3 = arr.filter((ele,ind)=>{
+
+      if(!arr2.includes(ele.id)){
+      return arr2.push(ele.id)
+  }
+
+  })
+  console.log(arr3)
+   ////[{id: 1, name: "Hari"},{id: 2, name: "ravi"}]
+
+//To get if addition of two numbers be a specific number or not
+   let arr = [12, 24, 6,34, 7, 89,11, 45, 22, 35];
+   for(let i=0;i<arr.length;i++){
+     for(let j=i+1;j<arr.length;j++){
+       if(Number(arr[i]) + Number(arr[j])==18){
+         console.log(arr[i],arr[j])
+       }
+     }
+   }
+//Delete an specific key:value pair from an object
+let obj = [
+  {
+      firstName: 'alex',
+      lastName: 'speed',
+      age: 20,
+      salary: 1000,
+  },
+  {
+      firstName: 'alex',
+      lastName: 'speed1',
+      age: 22,
+      salary: 1000,
+  }
+]
+
+obj.filter((i)=>{if(i.age===20)delete i.age})
+console.log(obj)
+   ////[{firstName: 'alex',lastName: 'speed',salary: 1000,},{ firstName: 'alex', lastName: 'speed1', age: 21, salary: 1000 } ]
+
+//Reverse a string without method
+//1.
+var str = "suraj";
+           var temp;
+           str = str.split("")
+           for(var i = 0; i < str.length; i++) {
+
+                      temp = str[i+1];
+                      str[i + 1] = str[i];
+                      str[i] = temp;
+                      i++;
+
+          }
+          console.log(str.join(""));
+   ////usarj
+
+//2.
+var str = "I am Hari";
+   var newstr = str.split(" ").reverse().join(" ")
+        console.log(newstr);
+  ////Hari am I
+
+   //3.
+var str = "I am Hari";
+   var newstr = str.split(" ").reverse().join(" ").split("").reverse().join("")
+        console.log(newstr);
+  ////I ma iraH
+
+
+
+
+
+
+
+//use Entries ,fromEntries method also,Did all without methods also.
+
+//Array to object conversion  .  https://bobbyhadz.com/blog/javascript-convert-array-to-object
+const object1 = {
+  a: 'somestring',
+  b: 42
+};
+
+
+  console.log(Object.assign([],object1))
+   ////[a: 'somestring', b: 42]
+   const arr = ['d', 45, 'e', 78, 'f', 56, 'g', '63t',5,"yt"];
+   let obj={}
+   for(i=0;i<arr.length;i+=2){
+      obj[arr[i]]=arr[i+1]
+   }
+   console.log(obj)
+   //// { '5': 'yt', d: 45, e: 78, f: 56, g: '63t' }
+
+// To find largest element from a string
+    //Note-same as in array
+let str="484279675856"
+let lar=str[0];
+for(let i=0;i<str.length;i++){
+    if(str[i]>lar){
+        lar=str[i]
+    }
+}
+console.log(lar)
+        ////9
+//To find most repeating characters in a string
+let str="4842527926752526"
+let count=0;
+let max;
+for(let i=0;i<str.length;i++){
+    for(let j=i+1;j<str.length;j++){
+        if(str[i]==str[j]){
+            count+=1
+            if(count){
+                max=str[i]
+            }
+        }
+
+    }
+}
+console.log(max)
+  ////2
+
+//to sort an array without method ??
+// let n="a5"
+// let factorial=1;
+// for(i=1;i<=Number(n);i++){
+//     factorial*=i
+// }
+// console.log(factorial)
+// let arr1=[1,4,7,9]
+// let arr2=[2,3,5,6,8]
+// console.log((arr1.concat(arr2)).sort())
+// let arr3=arr1.concat(arr2)
+// let arr4;
+// for(i=0;i<arr3.length;i++){
+//     if(arr[i]<arr[i+1]){
+//     }
+// }
+
+//To find factorial using recursion
+function factorialize(num) {
+  if (num < 0) {
+ return num * factorialize(num + 1);
+  } else if (num === 0) {
+    return 1;
+  }
+  else {
+    return num * factorialize(num - 1);
+  }
+}
+console.log(factorialize(-5))
+    ////-120
+let arr=[1,2,3];
+let target=4;
+let count=0;
+for (i=0;i<arr.length;i++){
+    for(j=i+1;j<arr.length;j++){
+        if(Number(arr[i])+Number(arr[j])==Number(target)){
+            console.log(arr[i],arr[j])
+        }
+    }
+}
+console.log(count)
+    //To get correct amount of denomition for an amount.
+    let amount=764;
+		let notes = [ 2000, 500, 200, 100, 50, 20, 10, 5, 1 ];
+    // let noteCounter = Array(9).fill(0);
+    let noteCounter=[]
+    noteCounter.length=notes.length;
+    for(i=0;i<noteCounter.length;i++){
+      noteCounter[i]=0
+    }
+		// count notes using Greedy approach
+		for (let i = 0; i < noteCounter.length; i++) {
+			if (amount >= notes[i]) {
+				noteCounter[i] = Math.floor(amount / notes[i]);
+				amount = amount % notes[i];
+			}
+		}
+		// Print notes
+		for (let i = 0; i < noteCounter.length; i++) {
+			if (noteCounter[i] != 0) {
+           console.log(notes[i] + " : "
+					+ noteCounter[i] );
+			}
+		}
+    ////500 : 1200 : 150 : 110 : 11 : 4
+    var x,y=null;
+    console.log(x)  //undefined
+    console.log(y)  //null
+   ////Why X is undefined and Y is null ? Read over == vs === questions along with fibonacci and palindrome series.
+
+
+================================
+
+
+We use UseEffect dependencies array
+                       Empty array:means component will render only once.
+                       No dependency:means will rerender on every state change.
+                       [state/variables]:means rerender of component will depend on it.
+
+Argument vs parameter-Arguments are called at time of sending and parameters are called at time of receiving.
+Rest vs spread -Rest are called when we have to receive a inuput ,e.g- suppose,we have to receive many arguments as parameters ,in that case to receive all at short syntax we use rest. vs when we have to access or get output of every items in an array / object ,we use spread.Both have same syntax and both are equivalent but not equal.
+
+////SetInterval in for loop
+e.g-1
+for(var i = 0; i < 5; i++) {
+  setTimeout(() => {
+    console.log(i)
+  },1000);
+}
+   //will result in printing 5 fivetimes.
+
+e.g-2
+
+ for(let i=0;i<5;i++){
+     setTimeout(()=>{
+         console.log(i),1
+     })
+ }
+   //will result in printing 0,1,2,3,4 .
+    SetInterval or setTimeout doesn't work properly in for loop,they have to wait till loop is over and then continue with the last item of i in the loop.
+    As var in global scope it fires the i's value as 3 when enters the loop or timeout.
+    But as in let case as it is in block scope,when it  enters to function ,it goes as a new value each time after the loop.
+
+ForEach loop vs map is for each loop returns undefined while map returns a new array and map is chainable i.e can use filter,sort,reduce methods while in case of for each we can't use them and with foreach we can't use them as it gives undefined in return.We use forEach if we don't want return data,and map if we want returned array.
+//
+difference between state and variable in react ?
+We use state instead of variables to update state beacuse state is under immutability (core concept) under react,while declaring variable will
+make our react app mutable which may cause to behave our app in an inappropriate way as in every change state rerenders but in case of variables that does not occur.
+reference-https://www.freecodecamp.org/news/what-every-react-developer-should-know-about-state/
+stale state-this problem ocurs when we update state inside a closure,i.e the state may not take the latest value of state immediately ,which can be
+          handled using setTimeout.
+//
+Difference between call vs apply vs bind ?
+//
+ES6 features ?
+//
+What are callbacks ?
+//
+image in public doesn't work if browser router used in case of nested router,we have to keep images in src and import and use images.
+//
+Filder used for debugging http requests(api),while postman is a complete API development environment.
+
+For e.g- if one child is in a parent then if we click on child then both child and parent will be called and if we call parent then only parent will be called,
+This is called event bubbling i.e child bubbles it's event upto it's parent DOM  .
+To stop this we use e.stopPropagation()
+https://stackoverflow.com/questions/1369035/how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli
+https://www.freecodecamp.org/news/event-bubbling-in-javascript/#:~:text=The%20%22Event%20Bubbling%22%20behavior%20makes,element%20is%20called%20Event%20Delegation.
+//
+For in to loop through an object.
+//
+For of to loop through an iterable object i,e array.
+//
+There are many metrices we used to measure performance and to do detailed report for web app optimization,In order to get them we use performance tab to
+avoid some most used bottlenecks and ways to improve the performance of our application.For this we can use google lighthouse for these and many other
+3rd parties are there to do so.
+Some famous metrices it takes in order to make the report are Page Load Time,Time to Interactive (TTI),First Input Delay (FID),User Engagement Metrics,
+Conversion Rate,Error Rate,CPU Usage,Render Time
+
+=========================================
+//NextJS
+Every file in public folder is publically available.
+Pages folder-
+We use [] ,to use dynamic routes.
+Next js gives us flexibility to use Head , Body differently
+while using script tag in next , sometimes it takes time to load script,so we use strategy=lazyload to enable to load script only
+after page's render.
+Don't use Next's Script in head section in nextjs.
+Nextjs gives Image component to optimize and lazyload large images
+Next link-to navigate
+Navigate page can be created in public
+style jsx
+component.Module.css-for component level styles
+Global.css -for global style in all components.
+
+Server side rendering-Load api data before preparing HTML (by browser),then give it to browser,the full HTML,which is very helpful for SEO purposes.
+Client Side Rendering-
+
+
+===============================
+Metamask
+
+consensus-A mechanism to reach a single value on blockchain.Majority always rules,is a part of consensus mechanism.
+Blockchain system can be of 2 pieces-ie.(1)chain selection (2)Sybli resistance(e.g-proof of work,as it figures out who is a block author)-this keeps transparency in users,by removing
+fake identity of users.In this proof of work a node have to go under very computational process called mining.
+
+In proof of work called miners but in proof of stake are called validators.
+Miners get paid in two different ways,they are in form of block reward and transaction fee.
+2 types of attacks can be there in blockchain,i.e(1)sybli attack-When an user creates number of pseudo anonymous accounts to influence a network,this is difficult because attacker have to
+do in proof of work(very much time required), or in proof of stake(majority required)
+ (2)51%attack-majority 51% stake in the blockchain
+
+Movement of eth to eth2.0 on verge of solving issues to proof of work
+(1).solving issue of energy consumption
+ proof of stake runs on sybli resitance mechanism.This is that,instead of solving a problem validators put their some amount in terms of collateral,that they are goimg to behave honestly,Here
+ validation us choosen in name of method rand doubt.proof of stake uses less energy, as there is no race between validators to solve problem first like in proof of work and only one miner needs to
+ do the work(to list the transaction on blockchain).
+(2).solving issue of high gas price issue(i.e scalability problem)
+  sharding solves this scalability problem(when there is not enough amount of block space for amount of transactions ,will lead to high gas price)
+
+solidity basics
+ Welcome to Remix
+Remix is an IDE for writing smart contracts,here we will use solidity language to write smart contract.
+  important prerequistes yo check-To check and use proper solidity's version,as solidity is a fast changing & updating language,we can do that(telling code,what version we are using)
+  by writing [pragma solidity 0.8.7](version number)
+  -solidity is a curly based language for Ethereum virtual machine(EVM)(A standard for deploying our smartcontracts to blockchain platform like,etherium).Using solidity we can create contracts for voting,crowdfunding etc
+  -Here // used for comment
+  -data types in solidity are boolean,uint,int,address,bytes
+  -solidity is a statically typed language
+Data Types-:
+ common datatypes are boolean(true/false),int,uint,address(public address without string),bytes(like string but automatmatically get converted to bytes object)
+Function-:
+    If we do the number private,then it canot be reusuable by anyone.
+    In case of public,it can be reusable anyone outside the contract.
+    View - keyword-can read but can't modify it.
+    Pure - Can't read nor can modify.
+
+More stuff(transaction) i.e more functionality or =more amount needed as gas fee.
+Like javascript functions can only be declared
+calling an another gas function from an function cost gas
+    Type-visibility-identifier() name
+    There are majorly 3 memory location,i.e,
+                              calldata-Used for temporary variable and can not be redeclared
+                              memory-temporary variable,can be redeclared
+                              storage-permanent variable,can be modified
+
+smart contracts can be deployed from another contract , it is called as composibility.
+In order to interact with any contract you need address of contract and ABI(Application Binary Interface)(Tells our code how to interact with the contarct) of contract.
+To override an function old function should be with keyword "virtual" and new function with name "override"
+FundMe-project
+Users can send etherium/polygon/avalanche/phantom,Contract owner can withdraw funding
+         Every transaction field have-Nonce(tx count),Gas price(in wei),max gas limit,to,value, v,r,s(components on tx signature),Data to send with transaction
+         Payable makes main functions dominant if we want to transact.
+         As wallets hold fund ,like that smart contract addresses can  hold funds /tokens like ethereum.
+         Revert-is Returning back/managing gas value, if condition not satisfies.
+         Oracle/chainlink comes to play ,when it comes to coversion of ethereum to USD.As here USD value of etherum is outside of blockchain ,
+               in order to link it oracle or to connect with any other native smart contaract, we need to use a decentralised oracle network.as blockchains are deterministic
+               and can't connect with real.
+
+Architecture of decentralised oracle network-If we will use datas from different API in order to communicate with outer data,then different nodes will give
+           different results,This is known as smart contract connectivity problem or oracle problem,So to solve it blockchain oracle come in place.
+           We can't make https calls ,to make api calls ,to connect with real outside data,then we will be ending with centralised data or with breaching consensus to get decentralised
+           data.
+           ChainLink-is for making our smart contracts decentralised with getting external data,Datafeeds and pricefeeds are ways to read data from real world,we can also make http calls
+           (API) in blockchain using link tokens,
+   SafeMath-In before versions of solidity before 0.8.0 there is an concept of unchecked,e.g-an uint8 can store value of 255 max ,so here if we go next then again it will start from 0,
+            but now this safemath concept is not there,and after 255 it will show warning and contract will be failed with no superstitutial value.
+            Till v0.8.0 its getting checked instead of unchecked ,but we can use unchecked library to use uncheck version of this behaviour using keyword wrapping with unchecked.
+            Using this unchecked keyword in 0.8.0 makes contract a little bit gas efficient
+There are 3 ways to send/receive ethereum i.e transfer,send ,call .out of which call is most efficient and recomended way.
+modifiers can be used for multiple thing call in a file.
+constant- which function/variable are not changed its values,they can be marked as constant in order to save gas.
+immutable- can be applied to those ,which are declared only once along with a initialization line and a declaration line also.can be declared in initialization line.
+Without using require keyword for showing errors,we can use new if statement with declaring error function and revert that error function.This will save gas.
+Receive ,fallback is used to receive money if someone accidentally send money to us in incorrect way.
